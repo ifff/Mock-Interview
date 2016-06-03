@@ -1,20 +1,24 @@
 - (fff) Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
-    - binary search
-    - (exclusive or) duplicate & missing
+    - binary search O(n)
+    - (exclusive or) duplicate & missing O(n)
+    
 - (fff) given a array of integer, find a continuous subarray whose sum is zero.
     - compute preSum, use hashMap
     - Extend to 2D problem, use two-levels loop, O(n^3)
+    
 - (cheng) Given a token sequence which represents the pre-order traversal result of a binary tree, check whether the sequence is valid or not.
-    - count method (count(non-null nodes) >= count(null nodes), and when processing the sequence is completed, count(non-null nodes) = count(null nodes)
+    - count method (count(non-null nodes) >= count(null nodes), and when processing the sequence is completed, count(non-null nodes) = count(null nodes) O(n)
     - use stack (processing the sequence from end to start,
         - null node: push into the stack
-        - non-null node: pop two nodes from the stack as left child and right child of current processing node
+        - non-null node: pop two nodes from the stack as left child and right child of current processing node O(n)
 - (cheng) A set of coins are arranged in one line, each coin has a specific value. Two players want to play games based on the coins. The players take coin one by one. At each iteration, one player can pick up a coin from the side of the lines (the left one or the right one), and then the other player take one coin following the same constraint. Assume both the players have the optimal strategies, can you find whether the first player will win when all coins are picked up. (the total count of the coins is even)
     - dp[i][j] means the maximal value that the first player can gain when the current line ranges from i to j (inclusive)
     - the first player tries to maximize the value at his round ( (j-i+1) % 2 == 0) )
         - dp[i][j] = max(dp[i+1][j] + value[i], dp[i][j-1] + value[j])
     - and the second player tries to minimize the value at his round ( (j-i+1) % 2 == 1 )
         - dp[i][j] = min(dp[i+1][j], dp[i][j-1])
+        the time complexity is O(n^2)
+        
 - (song) given two integer n and m (n >= m), now try to split n into m groups, and calculate how many different ways are there. (for example, n=3,m=2, (1,2), (0,3) two ways)
     - DFS (the minLength of cur depth is equal to the length of last depth)
     - dynamic programming: dp[i][j] means the count of different ways that split i into j groups
@@ -22,6 +26,7 @@
         - part2: at least one group is empty:dp[i][j-1]
         - dp[i][j] = dp[i-j][j] + dp[i][j-1]
         - initialization: dp[i][0] = 0,  dp[0][1] = 0
+        
 - (song) given an array of integer A, we can construct one unique binary search tree through adding each integer in the array to the tree one by one, the question is how to find the parent node for each node?
     - naive solution, for each node, we can search the parent node in the binary search tree
         - worst case O(n^2)
@@ -29,9 +34,10 @@
         - for each number k, find the first one m that is larger than k in previous numbers
             - and find the first one n that is less than k in previous numbers
             - use map<int, int> to store <value, index> pair,
-            - use lower_bound or up_bound to find m or n
+            - use lower_bound or up_bound to find m or n, the time complexity is O(nlogn)
             - one of m or n does not exist, return the one exists
             - both of them exist, return the one whose index is smaller
+            
 - (song) A set of bank are arranged in a circle, each bank have a value, and the sum of all banks is zero. each bank can transfer the value to its neighbors, and what’s the minimal count of transfer operations to make the values of all banks to be zero?
     - the low boundary operations is N - 1
     - we can split sub-group which is consisting by continuous banks and the sum of them is zero, thus we can only transfer the value among each group.
