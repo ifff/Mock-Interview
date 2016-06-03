@@ -1,0 +1,38 @@
+1. (Song)
+  Diamonds on columns. 
+  Given an array of columns, on each of the column, there is a diamond. Given a start and an end position. What is the minimum jump to get all the diamond.
+  Here, you are allowed to pass a column only once, and a jump operation is allowed to jump from any position to the begin or end of the column array.
+  Solution: at most 2, and discuss by cases.
+
+2. (Song)
+  Task schedule to Win scores.
+  Given N tasks. Each task has three attribute: Ai->init score, Bi->decreasing rate, and Ci->duration. The init score is decreased based on the delay time. 
+  For example, two task, do the first time at once, then the second. The final score is A1-B1*C1 + A2-B2*(C1+C2)
+  You are asked to given a schedule to achieve highest scores.
+  Solution: Greedy, proof by exchanging neighbors 
+  
+3. (Song)
+  Move operation
+  Given an array of size N, each element is between [1, N] without duplicate.  Only MOVE operation is allowed, which is to move an element to the front of the array.
+  What is the minimum MOVE operation is needed to make the array sorted.
+  Solution: From the largest as begin and scan backward, to find the longest continous decreasing sub sequence
+  
+4. (Song)
+  Range query
+  Given an array A of size N, the elements are all integer. Given a function f(x) = (123x + 4567) % 100007. The function is allowed to use only once, and you can query for the result of f(i, j).
+  where [i, j] is the range of subarray.  Then you can get another array B, which has {A0, A1, .., f(Ai), ..., f(Aj), Aj+1, ...AN-1}.
+  Return the query range (x, y), such that the sum of B is maximum and larger than A. If there exist no such range, return "Not used", or else return the range (x, y)
+  Solution: Maximum sum of subarray
+  
+5. (fff)
+  Longest Valid Parentheses, leetcode 32
+  
+6. (fff)
+  Trapping rain water, leetcode 42
+  follow up: trapping rain water in 2D space. 
+  Solution: Using Heap
+  
+7. (Xue)
+  Given N chords on a circle, return the number of intersection pair. (给定n个圆上的弦，求出它们相交的对数(端点相交也算))
+  Solution : Sorting and BIT
+   
